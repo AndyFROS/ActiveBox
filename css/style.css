@@ -1,0 +1,810 @@
+body{
+    margin:0;
+    /*Подключаем шрифты*/
+    font-family:'Raleway', sans-serif;
+    font-size: 14px;
+    color: #6c7279;
+    background-color: #fff;
+    -webkit-font-smoothing: anitialised;
+}
+
+*,
+*:before,
+*:after
+ {
+    /*Говорм всем элементам !!!!*/
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+/*Container
+=================================================*/
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/*Header
+=================================================*/
+
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100px;
+}
+
+.header.fixed{
+    position: fixed;
+    background: #31344e;
+    opacity: 0.9;
+    border-bottom: 0;
+    height: auto;
+
+}
+
+.header.fixed .header__inner{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 0;
+}
+
+.header__inner{
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 35px 0;
+    /* CSS свойство align-items выравнивает flex-элементы текущей
+    flex-линии таким же образом, как и justify-content,
+    но в перпендикулярном направлении. */
+    align-items: center;
+    /*space-between делает отступ между элементами и
+    приклеивает элементы по краям обьекта создавая
+    равные отступы*/
+    justify-content: space-between;
+}
+
+/*Nav
+=================================================*/
+
+.nav{
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    /*Делаем все буквы заглавные*/
+    text-transform: uppercase;
+}
+
+.nav__link{
+    color: #fff;
+    opacity: 0.75;
+    margin-left: 50px;
+    /* Убираем стили у ссылки */
+    text-decoration: none;
+    /*Делаем плавную анимацию*/
+    transition: opacity 0.3s linear;
+}
+
+.nav__link:first-child{
+    margin-left: 0;
+}
+
+.nav__link:hover{
+    opacity: 1;
+}
+
+.intro{
+    height: 750px;
+    background: #31344e url("../images/intro-bg.jpg") center no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    display: flex;
+    /* Выравниваем весь контентпо центру (по гроизонтали) */
+    justify-content: center;
+    /*Каждый новый элемент блока intro будет с новой строки */
+    flex-direction: column;
+}
+
+
+.intro__title{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    color:#fff;
+    font-weight: 700;
+    margin: 0 0 30px;
+    text-align: center;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.intro__inner{
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro__subtitle{
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 65px;
+}
+
+
+/*Button
+=================================================*/
+
+.btn{
+    /* №№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№№ */
+    display: inline-block;
+    font-size: 13px;
+    vertical-align: top;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 3px;
+    /* Анимация */
+    transition: background-color 0.3s linear;
+    /* Курсор при наведении будет палец */
+    cursor: pointer;
+    /*Наследование шрифта от родителя*/
+    font-family: inherit;
+    text-align: center;
+}
+
+.btn--red{
+    background-color: #e84545;
+}
+
+.btn--red:hover{
+    background-color: #c73838;
+}
+
+
+/*Features
+=================================================*/
+
+.feature{
+    margin: 100px 0;
+    display: flex;
+    /*flex-wrap: wrap позволяет переносить элементы на
+    новую строку*/
+    flex-wrap: wrap;
+}
+
+.feature__item{
+    width: 33%;
+    text-align: center;
+    padding: 0 20px;
+    margin:30px 0;
+}
+
+.feature__icon{
+    margin-bottom: 20px;
+}
+
+.feature__title{
+    color: #2d3033;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.feature__text{
+    color: #6c7279;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/*Works
+=================================================*/
+
+.works{
+display: flex;
+flex-wrap: wrap;
+}
+
+.works__item{
+width: 25%;
+height: 350px;
+border-bottom: #fff solid 1px;
+border-right: #fff solid 1px;
+position: relative;
+/* Прячем все что выходит за рамки этого блока */
+overflow: hidden;
+}
+
+/* При наведениина works__item будет прявлятся блок
+works__content */
+.works__item:hover .works__content{
+    opacity: 0.85;
+}
+
+
+.works__img{
+position: absolute;
+    min-width: 100%;
+/* Выравниваем картинку по оси (х у z) */
+left: 50%;
+top: 50%;
+z-index: 1;
+transform: translate3d(-50%,-50%,0);
+
+}
+
+.works__content{
+position: absolute;
+display: flex;
+justify-content: center;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+text-align: center;
+background-color: #e84545;
+/* Каждый элемент будет появлятсяс новой строки */
+flex-direction: column;
+/* Анимация */
+transition: opacity 0.5s linear;
+opacity: 0.85;
+/* z-index позволяет управлять слоем
+контента чем больше цифра тем выше будет блок */
+z-index: 2;
+opacity: 0;
+}
+
+.works__title{
+color: #ffffff;
+font-size: 14;
+text-transform: uppercase;
+margin-bottom: 2%;
+font-weight: 700;
+}
+
+.works__text{
+color: #ffffff;
+font-size: 14;
+}
+
+/*Team
+=================================================*/
+
+.team{
+    margin: 100px 0 70px;
+}
+
+.team__inner{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.team__item{
+    width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.team__name{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.team__img{
+    margin-bottom: 20px;
+    max-width: 100%;
+    /* Будет уменьшатся ширина и высота     будет менятся взависимости от     ширины для адаптивности */
+    height: auto;
+    /* Задаем параметры для адаптивности */
+    display: block;
+}
+
+.team__lid{
+    text-transform: uppercase;
+    color: #e84545;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.team__text{
+    font-size: 14px;
+    line-height: 1.5    ;
+}
+
+
+/*Social
+=================================================*/
+.social{
+    display: flex;
+}
+
+.social__item{
+    width: 40px;
+    height: 40px;
+    border: 2px solid #e8ecee;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*Анимации*/
+    transition: background 0.3s linear;
+
+}
+
+.social__item:hover{
+    background-color: #e8ecee;
+}
+
+/*Работаем с social__icon при наводе на обьяект social__item*/
+.social__item:hover .social__icon{
+    fill: #e84545;
+}
+
+
+.social__icon{
+    /* Настройка svg иконки*/
+    height: 30px;
+    display: block;
+    /* Цвет иконки*/
+    fill: #c6cacc;
+    transition: fill 0.3s linear;
+}
+
+
+
+/*rewiews
+=================================================*/
+
+.rewiews{
+    background-color: #53354a;
+/*  Скрывть все что выходит за указаные границы*/
+    overflow: hidden;
+}
+
+.rewiew__slider{
+    height: 500px;
+    overflow: hidden;
+}
+
+.rewiew__slider.slick-initialized{
+    height: auto;
+}
+
+
+.slick-dots{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    right: 0;
+    margin: 0;
+    padding: 0 0 15px;
+    list-style: none;
+}
+
+.slick-dots li{
+    margin: 0 5px;
+}
+
+.slick-dots button{
+    background: #fff;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0.5;
+    color: transparent;
+    cursor: pointer;
+}
+
+.slick-dots button:focus{
+    outline: 0;
+}
+
+.slick-dots .slick-active button{
+    opacity: 1;
+}
+
+
+.rewiews__item{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+}
+
+.rewiews__photo{
+    width: 50%;
+    height: 500px;
+    position: relative;
+
+}
+
+
+.rewiews__img{
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    /*Если картика будет более 500рх то она будет отцентрована*/
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+
+.rewiews__content{
+    width: 50%;
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+
+.rewiews__text{
+    font-family: "Cardo", "sans-serif";
+    font-style: italic;
+    font-size: 36px;
+    line-height: 1.2;
+    color: #fff;
+
+}
+
+.rewiews__autor{
+    font-size: 13px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 25px;
+
+}
+
+
+
+/*Download
+=================================================*/
+
+
+.download{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 100px 0;
+
+}
+
+.btn--dw{
+    min-width: 280px;
+}
+
+
+.download__header{
+    font-size: 28px;
+    color: #2d3033;
+    margin-bottom: 20px;
+}
+
+.download__text{
+    font-size: 13px;
+    color: #2d3033;
+    margin-bottom: 40px;
+}
+
+
+
+/*Footer
+=================================================*/
+
+.footer{
+    padding: 70px;
+    background-color: #3a3e64;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer__inner{
+    width: 33%;
+    text-align: center;
+}
+
+.loc__title{
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+.loc__text{
+    font-size: 14px;
+}
+
+.soc__mr{
+    justify-content: center;
+}
+
+
+
+/*Under footer
+=================================================*/
+
+.und__footer{
+    padding: 30px 0;
+    background-color: #313454;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.und__footer span{
+    color: #fff;
+}
+
+
+/*Burger Menu
+=================================================*/
+
+
+.burger{
+    display: none;
+    background: none;
+    padding: 9px 2px;
+    border: 0;
+    cursor: pointer;
+}
+
+.burger__item{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #fff;
+    font-size: 0;
+    color: transparent;
+    position: relative;
+
+}
+
+.burger__item:before,
+.burger__item:after{
+    content: "";
+    height: 100%;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    background-color: #fff;
+}
+
+
+.burger__item:before{
+    top: -8px;
+    width: 32px;
+}
+
+.burger__item:after{
+    bottom: -8px;
+    width: 24px;
+}
+
+/*Media (Тэг @media работает как if\else в программировании)
+=================================================*/
+
+
+
+/*Делаем адаптивную верстку*/
+@media (max-width: 1300px){
+
+    /*Works*/
+    .works__item{
+        width: 50%;
+    }
+
+}
+
+
+@media (max-width: 991px){
+
+    /*Nav*/
+    .nav{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        flex-direction: column;
+        width: 100%;
+        text-align: right;
+        background-color: #31344e;
+    }
+
+    .nav.show{
+        display: flex;
+        margin-top: -1px;
+    }
+
+
+    .nav__link{
+        padding: 10px 15px;
+    }
+
+    /*BurgMenu*/
+    .burger{
+        display: block;
+    }
+
+
+    /*Intro*/
+    .intro__title{
+        font-size: 40px;
+    }
+
+    /*Features*/
+    .feature__item{
+        width: 50%;
+    }
+
+    /*Works*/
+    .works__item{
+        width: 50%;
+    }
+
+    /*Team*/
+    .team__item{
+        width: 50%;
+        margin: 60px 0 30px 0;
+        text-align: center;
+    }
+
+    .team__img{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .social{
+        justify-content: center;
+    }
+
+    /*Testimonials*/
+    .rewiews__photo{
+        width: 100%;
+        margin: 15px 0 40px;
+        overflow: hidden;
+    }
+
+    .rewiews__content{
+        width: 100%;
+        padding-left: 0;
+        padding-bottom: 40px;
+    }
+
+
+}
+
+
+@media (max-width: 767px){
+
+
+    /*Intro*/
+    .intro{
+        height: auto;
+        padding-top: 130px;
+        padding-bottom: 30px;
+    }
+
+    .intro__title{
+        font-size: 30px;
+    }
+
+
+    .intro__subtitle{
+        font-size: 16px;
+        margin-bottom: 35px;
+    }
+
+    /*Features*/
+    .feature{
+        margin: 40px 0;
+    }
+
+    .feature__item{
+        width: 100%;
+        padding: 40px 0;
+    }
+
+    /*Works*/
+    .works__item{
+        width: 100%;
+        height: 300px;
+    }
+
+
+    /*Team*/
+    .team__item{
+        width: 100%;
+        margin: 60px 0 30px 0;
+        text-align: center;
+    }
+
+    .team__img{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .social{
+        justify-content: center;
+    }
+
+
+    /*Testimonals*/
+    .rewiews__text{
+        font-size: 28px;
+    }
+
+    /*Download*/
+    .download{
+    margin: 60px 0;
+
+    }
+
+    .download__header{
+        font-size: 24px;
+    }
+
+    .btn--dw{
+        min-width: 200px;
+    }
+
+    /*Footer*/
+    .footer{
+    padding: 30px 0;
+    }
+
+
+    .footer__inner{
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .footer__inner:last-child{
+        margin-bottom: 0;
+    }
+
+    /*Under__footer*/
+    .und__footer{
+        padding: 25px 0;
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 414px){
+
+    .rewiews__img{
+        right: -140px;
+    }
+
+}
